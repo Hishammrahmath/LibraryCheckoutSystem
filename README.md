@@ -9,7 +9,7 @@
   - N/A
 
 - What programming language are you selecting? Which version?
-  - Java, [put your Java version here]
+  - Java, 21.0.4
 
 - Do you have your GitHub account set up?
   - Yes
