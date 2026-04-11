@@ -18,7 +18,7 @@
   - Yes
 
 - What is the link to your GitHub repository?
-  - [paste repo link here after you create it]
+  - https://github.com/Hishammrahmath/LibraryCheckoutSystem.git
 
 - If you are in a group, does everyone have access to the github repo?
   - N/A
