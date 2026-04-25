@@ -1,34 +1,61 @@
-# LibraryCheckoutSystem
+# Library Checkout System
 
 ## Sprint 1 Checklist
 
-- Are you in a Group?
-  - No
+- Are you in a Group?  
+  No, I am working individually.
 
-- If so, who else is in your group?
-  - N/A
+- If so, who else is in your group?  
+  Not applicable.
 
-- What programming language are you selecting? Which version?
-  - Java, 21.0.4
+- What programming language are you selecting? Which version?  
+  Java. I am using Java 21.0.4.
 
-- Do you have your GitHub account set up?
-  - Yes
+- Do you have your GitHub account set up?  
+  Yes.
 
-- Do you have a public repository for your Project?
-  - Yes
+- Do you have a public repository for your Project?  
+  Yes.
 
-- What is the link to your GitHub repository?
-  - https://github.com/Hishammrahmath/LibraryCheckoutSystem.git
+- What is the link to your GitHub repository?  
+  https://github.com/Hishammrahmath/LibraryCheckoutSystem.git
 
-- If you are in a group, does everyone have access to the github repo?
-  - N/A
+- If you are in a group, does everyone have access to the github repo?  
+  Not applicable.
 
-- Do you have a “Hello World” program that compiles and runs?
-  - Yes
+- Do you have a “Hello World” program that compiles and runs?  
+  Yes.
 
-- Where is the entry point to your project?
-  - src/main/Main.java
+- Where is the entry point to your project?  
+  `src/main/Main.java`
 
-## Notes
-This project is currently set up for Sprint 1 with a working Hello World program.
-The long-term idea is a Library Checkout System.
+## Project Idea
+
+My project idea is to create a Library Checkout System. The system will allow a library to manage books, members, checkouts, and returns. Users will be able to view available books, check out books, return books, and track the current status of each book.
+
+This project is large enough to later demonstrate six custom design patterns because it can include different responsibilities such as managing books, handling checkout rules, creating different user roles, tracking transactions, and organizing the library system in a modular way.
+
+## Planned Features
+
+- Add and store book information
+- View all books in the library
+- Track whether a book is available or checked out
+- Register library members
+- Allow a member to check out a book
+- Allow a member to return a book
+- Display checkout status clearly
+- Build the project using object-oriented programming principles
+
+## Possible Libraries and Utilities
+
+I may use the following libraries or Java utilities as the project develops:
+
+- JUnit 5 for unit testing
+- Java Collections Framework for storing books, members, and checkout records
+- Java Scanner for console input
+- JavaFX or Swing if I decide to add a graphical interface later
+- Optional file handling utilities if I decide to save library records to a file
+
+## Sprint 2 Progress
+
+For Sprint 2, I selected my project idea, listed possible libraries, and started adding working code toward the Library Checkout System. I created basic classes for books, members, and library operations. I also plan to make at least four meaningful commits toward the project.
