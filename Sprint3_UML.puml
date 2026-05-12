@@ -8,6 +8,7 @@ interface IBookBuilder {
     +setGenre(genre: String): IBookBuilder
     +setYearPublished(yearPublished: int): IBookBuilder
     +build(): Book
+    -validateBookInformation(): void
 }
 
 class BookBuilder {
