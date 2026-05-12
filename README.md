@@ -75,3 +75,19 @@ For the final submission, I plan to demonstrate adding books, registering member
 ## Sprint 3 Problems or Risks
 
 Everything currently compiles and runs. The main challenge was refactoring the original simple code to use design patterns without making it too complicated for the project size. A possible risk is that future features, such as due dates or fines, may require adding more checkout tracking logic.
+
+## How to Run
+
+Compile the project from the root folder:
+
+```bash
+javac -d out src/main/*.java
+```
+
+Run the project:
+
+```bash
+java -cp out Main
+```
+
+The demo shows books being added, a member checking out books, the checkout policy changing from standard to student, and a book being returned.
