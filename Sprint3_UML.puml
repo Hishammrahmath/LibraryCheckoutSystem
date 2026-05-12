@@ -1,0 +1,102 @@
+@startuml
+title Sprint 3 Design Pattern UML
+
+interface IBookBuilder {
+    +setTitle(title: String): IBookBuilder
+    +setAuthor(author: String): IBookBuilder
+    +setBookId(bookId: String): IBookBuilder
+    +setGenre(genre: String): IBookBuilder
+    +setYearPublished(yearPublished: int): IBookBuilder
+    +build(): Book
+}
+
+class BookBuilder {
+    -title: String
+    -author: String
+    -bookId: String
+    -genre: String
+    -yearPublished: int
+    +setTitle(title: String): IBookBuilder
+    +setAuthor(author: String): IBookBuilder
+    +setBookId(bookId: String): IBookBuilder
+    +setGenre(genre: String): IBookBuilder
+    +setYearPublished(yearPublished: int): IBookBuilder
+    +build(): Book
+}
+
+class Book {
+    -title: String
+    -author: String
+    -bookId: String
+    -genre: String
+    -yearPublished: int
+    -checkedOut: boolean
+    +Book(title: String, author: String, bookId: String, genre: String, yearPublished: int)
+    +getTitle(): String
+    +getAuthor(): String
+    +getBookId(): String
+    +getGenre(): String
+    +getYearPublished(): int
+    +isCheckedOut(): boolean
+    +checkOut(): void
+    +returnBook(): void
+    +getStatus(): String
+}
+
+interface CheckoutPolicy {
+    +canCheckout(member: Member, book: Book): boolean
+    +getCheckoutMessage(member: Member, book: Book): String
+    +getPolicyName(): String
+}
+
+class StandardCheckoutPolicy {
+    -MAX_BOOKS_ALLOWED: int
+    +canCheckout(member: Member, book: Book): boolean
+    +getCheckoutMessage(member: Member, book: Book): String
+    +getPolicyName(): String
+}
+
+class StudentCheckoutPolicy {
+    -MAX_BOOKS_ALLOWED: int
+    +canCheckout(member: Member, book: Book): boolean
+    +getCheckoutMessage(member: Member, book: Book): String
+    +getPolicyName(): String
+}
+
+class Member {
+    -name: String
+    -memberId: String
+    -checkedOutBookIds: ArrayList<String>
+    +Member(name: String, memberId: String)
+    +getName(): String
+    +getMemberId(): String
+    +getCheckedOutBookCount(): int
+    +checkoutBook(bookId: String): void
+    +returnBook(bookId: String): void
+}
+
+class Library {
+    -books: ArrayList<Book>
+    -members: ArrayList<Member>
+    -checkoutPolicy: CheckoutPolicy
+    +Library()
+    +Library(checkoutPolicy: CheckoutPolicy)
+    +setCheckoutPolicy(checkoutPolicy: CheckoutPolicy): void
+    +addBook(book: Book): void
+    +addMember(member: Member): void
+    +displayBooks(): void
+    +checkoutBook(bookId: String, memberId: String): void
+    +returnBook(bookId: String, memberId: String): void
+}
+
+IBookBuilder <|.. BookBuilder
+BookBuilder ..> Book : builds
+CheckoutPolicy <|.. StandardCheckoutPolicy
+CheckoutPolicy <|.. StudentCheckoutPolicy
+Library o-- Book
+Library o-- Member
+Library --> CheckoutPolicy
+CheckoutPolicy ..> Member
+CheckoutPolicy ..> Book
+
+@enduml

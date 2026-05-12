@@ -3,10 +3,23 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> books;
     private ArrayList<Member> members;
+    private CheckoutPolicy checkoutPolicy;
 
     public Library() {
         books = new ArrayList<>();
         members = new ArrayList<>();
+        checkoutPolicy = new StandardCheckoutPolicy();
+    }
+
+    public Library(CheckoutPolicy checkoutPolicy) {
+        books = new ArrayList<>();
+        members = new ArrayList<>();
+        this.checkoutPolicy = checkoutPolicy;
+    }
+
+    public void setCheckoutPolicy(CheckoutPolicy checkoutPolicy) {
+        this.checkoutPolicy = checkoutPolicy;
+        System.out.println("Checkout policy changed to: " + checkoutPolicy.getPolicyName());
     }
 
     public void addBook(Book book) {
@@ -24,7 +37,9 @@ public class Library {
             System.out.println(
                 book.getBookId() + " - " +
                 book.getTitle() + " by " +
-                book.getAuthor() + " | Status: " +
+                book.getAuthor() + " (" +
+                book.getGenre() + ", " +
+                book.getYearPublished() + ") | Status: " +
                 book.getStatus()
             );
         }
@@ -49,15 +64,27 @@ public class Library {
             return;
         }
 
+        if (!checkoutPolicy.canCheckout(member, book)) {
+            System.out.println(checkoutPolicy.getCheckoutMessage(member, book));
+            return;
+        }
+
         book.checkOut();
+        member.checkoutBook(book.getBookId());
         System.out.println(member.getName() + " checked out: " + book.getTitle());
     }
 
-    public void returnBook(String bookId) {
+    public void returnBook(String bookId, String memberId) {
         Book book = findBookById(bookId);
+        Member member = findMemberById(memberId);
 
         if (book == null) {
             System.out.println("Book not found.");
+            return;
+        }
+
+        if (member == null) {
+            System.out.println("Member not found.");
             return;
         }
 
@@ -67,6 +94,7 @@ public class Library {
         }
 
         book.returnBook();
+        member.returnBook(book.getBookId());
         System.out.println("Returned: " + book.getTitle());
     }
 

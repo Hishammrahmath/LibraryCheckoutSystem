@@ -59,3 +59,19 @@ I may use the following libraries or Java utilities as the project develops:
 ## Sprint 2 Progress
 
 For Sprint 2, I selected my project idea, listed possible libraries, and started adding working code toward the Library Checkout System. I created basic classes for books, members, and library operations. I also plan to make at least four meaningful commits toward the project.
+
+## Sprint 3 Progress
+
+For Sprint 3, I made progress by refactoring the Library Checkout System to use two custom design patterns from class while preserving the basic checkout and return functionality.
+
+The first design pattern implemented is the Builder Pattern. `Book` is the product, `IBookBuilder` defines the builder steps, and `BookBuilder` is the concrete builder. `Main.java` now creates books through the builder by setting the title, author, book ID, genre, and year published instead of directly calling a long constructor.
+
+The second design pattern implemented is the Strategy Pattern. `CheckoutPolicy` is the strategy interface, and `StandardCheckoutPolicy` and `StudentCheckoutPolicy` are concrete strategies. `Library` depends on the `CheckoutPolicy` interface instead of a specific policy class. The policy controls checkout rules by limiting how many books a member can check out. `Main.java` demonstrates using the standard policy first and then switching to the student policy.
+
+## Final Submission Plan
+
+For the final submission, I plan to demonstrate adding books, registering members, checking out books, returning books, and showing how the design patterns make the system easier to extend. I will explain that the Builder Pattern makes book creation cleaner when book details grow, and the Strategy Pattern makes checkout rules easier to change without rewriting the main library checkout code.
+
+## Sprint 3 Problems or Risks
+
+Everything currently compiles and runs. The main challenge was refactoring the original simple code to use design patterns without making it too complicated for the project size. A possible risk is that future features, such as due dates or fines, may require adding more checkout tracking logic.

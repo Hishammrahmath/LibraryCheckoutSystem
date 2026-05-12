@@ -2,12 +2,16 @@ public class Book {
     private String title;
     private String author;
     private String bookId;
+    private String genre;
+    private int yearPublished;
     private boolean checkedOut;
 
-    public Book(String title, String author, String bookId) {
+    public Book(String title, String author, String bookId, String genre, int yearPublished) {
         this.title = title;
         this.author = author;
         this.bookId = bookId;
+        this.genre = genre;
+        this.yearPublished = yearPublished;
         this.checkedOut = false;
     }
 
@@ -21,6 +25,14 @@ public class Book {
 
     public String getBookId() {
         return bookId;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getYearPublished() {
+        return yearPublished;
     }
 
     public boolean isCheckedOut() {
